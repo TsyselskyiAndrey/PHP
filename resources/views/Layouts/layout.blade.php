@@ -27,6 +27,25 @@
                   <li class="nav-item">
                     <a class="nav-link active" href="/create">Create</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="/profile">Profile</a>
+                  </li>
+                  @guest
+                  <li class="nav-item">
+                    <a class="nav-link active" href="/login" >Auth</a>
+                  </li>
+                  @endguest
+                  @auth
+                  <li class="nav-item">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="btn btn-link">Log Out</button>
+                    </form>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#" >{{Auth::user()->name}}</a>
+                  </li>
+                  @endauth
                 </ul>
               </div>
             </div>
